@@ -2,7 +2,7 @@
 import { Photo } from "../../types";
 
 import ImageCard from "../ImageCard/ImageCard";
-
+import css from "./ImageGallery.module.css";
 import React, { FC, MouseEventHandler } from "react";
 
 interface ImageGalleryProps {
@@ -12,12 +12,12 @@ interface ImageGalleryProps {
 
 const ImageGallery: FC<ImageGalleryProps>  = ({ photos, handleImageClick,  }) => {
   return (
-    <ul>
+    <ul  className={css.image}>
       {//Array.isArray(photos) &&
       photos.map((photo, index) => {
         //const isLastImage = index === photos.length - 1;
         return (
-          <li key={photo.id} /*ref={isLastImage ? lastImageRef : null}*/>
+          <li className={css.image2} key={photo.id} /*ref={isLastImage ? lastImageRef : null}*/>
             <ImageCard photo={photo} onClick={() => handleImageClick(photo)}/>
           </li>
         );

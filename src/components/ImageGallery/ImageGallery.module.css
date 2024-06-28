@@ -1,0 +1,13 @@
+.image {
+    list-style-type: none;
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.image2 {
+    width: 230px;
+    height: 150px;
+    flex-shrink: 0;
+    cursor: pointer;
+}
