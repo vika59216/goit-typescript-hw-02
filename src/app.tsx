@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect, } from "react";
 import "./app.css";
 import SearchBar from "./components/SearchBar/SearchBar";
 import Loader from "./components/Loader/Loader";
@@ -9,18 +9,17 @@ import LoadMoreBtn from "./components/LoadMoreBtn/LoadMoreBtn";
 import { ImageModal } from "./components/ImageModal/ImageModal";
 import ScrollUp from "./components/ScrollUp/ScrollUp";
 import ScrollIntoView from 'react-scroll-into-view'
-import axios from 'axios';
+import { Photo } from "./types";
 
 const App = () => {
-  const [photos, setPhotos] = useState(null);
-  const [query, setQuery] = useState('');
-  const [loading, setLoading] = useState(false);
-  const [error, setError] = useState(false);
-  const [page, setPage] = useState(1);
-  const [totalPages, setTotalPages] = useState(0);
-  const [selectedPhoto, setSelectedPhoto] = useState(null);
-  const [scrollBtn, setScrollBtn] = useState(false);
-  // const lastImageRef = useRef(null);
+ const [photos, setPhotos] = useState<Photo[] | null>(null);
+  const [query, setQuery] = useState<string>('');
+  const [loading, setLoading] = useState<boolean>(false);
+  const [error, setError] = useState<boolean>(false);
+  const [page, setPage] = useState<number>(1);
+  const [totalPages, setTotalPages] = useState<number>(0);
+  const [selectedPhoto, setSelectedPhoto] = useState<Photo | undefined>(undefined);
+  const [scrollBtn, setScrollBtn] = useState<boolean>(false);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -60,7 +59,7 @@ const App = () => {
     // scrollToLastImage();
   }, [query, page]);
 
-  const handleQuery = (newQuery) => {
+  const handleQuery = (newQuery:string) => {
     if (newQuery !== query) {
       setQuery(newQuery);
       setPhotos(null);
@@ -80,12 +79,12 @@ const App = () => {
     // setScrollBtn(true);
   };
 
-  const openModal = photo => {
+  const openModal = (photo: Photo) => {
     setSelectedPhoto(photo);
   };
 
   const closeModal = () => {
-    setSelectedPhoto(null);
+    setSelectedPhoto(undefined);
   };
 
   const onScrollBtn = () => {

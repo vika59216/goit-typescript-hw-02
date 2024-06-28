@@ -1,8 +1,11 @@
 import { IoIosArrowDropup } from 'react-icons/io';
 import css from "./ScrollUp.module.css"
-import React from 'react'
+import React, { FC, MouseEventHandler } from 'react';
+interface ScrollUpProps {
+  onScrollBtn: MouseEventHandler<HTMLDivElement>;
+}
 
-const ScrollUp = ({onScrollBtn}) => {
+const ScrollUp: FC<ScrollUpProps>  = ({onScrollBtn}) => {
   return (
     <div className={css.scrollUp} onClick={onScrollBtn}><IoIosArrowDropup size='50'/></div>
   )

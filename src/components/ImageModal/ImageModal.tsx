@@ -1,6 +1,13 @@
-import React from 'react';
+import React, { FC } from 'react';
+import { Photo } from '../../types';
 import Modal from 'react-modal';
 import css from './ImageModal.module.css';
+
+interface ImageModalProps {
+  isOpen: boolean;
+  photo?: Photo;
+  onRequestClose: () => void;
+}
 
 const customStyles = {
   content: {
@@ -17,7 +24,7 @@ const customStyles = {
   },
 };
 
-export const ImageModal = ({ isOpen, photo, onRequestClose }) => {
+export const ImageModal: FC<ImageModalProps> = ({ isOpen, photo, onRequestClose }) => {
   if (!photo) {
     return null;
   }
