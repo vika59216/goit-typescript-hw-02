@@ -21,7 +21,7 @@ const App = () => {
   const [selectedPhoto, setSelectedPhoto] = useState<Photo | undefined>(undefined);
   const [scrollBtn, setScrollBtn] = useState<boolean>(false);
 
-  useEffect(() => {
+  /*useEffect(() => {
     const handleScroll = () => {
       if (window.innerWidth > 900) {
         const isScrollBtnVisible = window.scrollY > 200;
@@ -32,7 +32,7 @@ const App = () => {
     return () => {
       window.removeEventListener('scroll', handleScroll);
     };
-  }, []);
+  }, []);*/
 
   useEffect(() => {
     if (!query) return;
